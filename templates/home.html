@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to PATH</h1>
+    <hr class="my-4">
+    <p class="lead">PATH is a non-profit organization that provides temporary housing, food, and support services to homeless people. We believe that everyone deserves a safe place to live and the opportunity to rebuild their lives.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{ url_for('static', filename='Donated-Bikes1.jpg') }}" width="60%" height="60%">
+    </div>
+    <div class="col-md-4">
+      <img src="{{ url_for('static', filename='FeedingHomeless4.jpg') }}" width="60%" height="60%">
+    </div>
+    <div class="col-md-4">
+      <img src="{{ url_for('static', filename='PATH-Christmas2.jpg') }}" width="60%" height="60%">
+    </div>
+  </div>
+{% endblock %}

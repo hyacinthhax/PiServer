@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}About{% endblock %}
+{% block content %}
+    <img src="{{ url_for('static', filename='ThePath\'sMission.jpg') }}" width="100%" height="100%">
+    <h2>Our History</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='PATH-Main-Right.jpg') }}" width="60%" height="60%">
+                <p>This is Our Office, Come Visit!</p>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='NewsPaper-Cutting4.jpg') }}" width="60%" height="60%">
+                <p>September 28, 1983; City of Farmington OK's shelter to be built.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='OldPATH1.jpg') }}" width="60%" height="60%">
+                <p>PATH Had very humble beginnings, with not much room.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='OldPATH2.jpg') }}" width="60%" height="60%">
+                <p>This is one of the first images of PATH in its humble beginning.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='OldPATH3.jpg') }}" width="60%" height="60%">
+                <p>PATH has a long history with feeding and leading the homeless to better opportunity.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='OldPATH4.jpg') }}" width="60%" height="60%">
+                <p>PATH has continued to impact those in need.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='FeedingHomeless2.jpg') }}" width="60%" height="60%">
+                <p></p>
+            </div>
+        </div>
+    <p>If you have any questions or feedback, please don't hesitate to <a href="{{ url_for('views.contactPage') }}">Contact Us.</a>.</p>
+{% endblock %}
