@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrit="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    {% if title %}
+        <title>PATH - People Assisting The Homeless - {{ title }}</title>
+    {% else %}
+        <title>PATH - People Assisting The Homeless</title>
+    {% endif %}
+
+</head>
+<body>
+    <header class="site-header">
+      <a href="{{ url_for('views.home') }}">
+        <img src="{{ url_for('static', filename='PATH-Main.png') }}" width="75%" height="75%" alt="PATH Logo">
+      </a>
+      <h1>PATH - People Assisting The Homeless</h1>
+        <nav class="navbar navbar-expand-sm navbar-light bg-steel fixed-top">
+          <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            	<span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{{ url_for('views.home') }}">Home</a>
+                <a class="nav-item nav-link" href="{{ url_for('views.aboutPage') }}">About</a>
+                <a class="nav-item nav-link" href="{{ url_for('views.contactPage') }}">Contact</a>
+                <a class="nav-item nav-link" href="{{ url_for('views.donatePage') }}">Donate</a>
+              </div>
+              <!-- Navbar Right Side -->
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ url_for('auth.loginUser') }}">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('auth.registerUser') }}">Register</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Our Sidebar</h3>
+            <p class='text-muted'>You can put any information here you'd like.
+              <ul class="list-group">
+                <li><a href="{{ url_for('views.aboutPage') }}">About Us</a></li>
+                <li><a href="{{ url_for('views.contactPage') }}">Contact Us</a></li>
+                <li><a href="{{ url_for('views.donatePage') }}">Donate Today!</a></li>
+                <li><a href="https://facebook.com/PATHNM/">Keep Up To Date With Us!</a></li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+</body>
+</html>
